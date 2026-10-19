@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "2026-10-19.1",
+  "revision": "2026-10-19.2",
   "global": {
     "enabled": true,
     "killSwitch": false,
@@ -305,6 +305,48 @@
       ],
       "placements": {},
       "googleUnits": []
+    },
+    {
+      "id": "qr-studio",
+      "domain": "qr.mightora.io",
+      "pathPrefixes": [
+        "/"
+      ],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 1,
+      "categories": [
+        "mightora-tools",
+        "feedback",
+        "blog"
+      ],
+      "allowedSizes": [
+        "320x50",
+        "468x60",
+        "728x90"
+      ],
+      "exclusions": [
+        "/embed/*",
+        "/privacy*",
+        "/settings*",
+        "/consent*"
+      ],
+      "longContentPaths": [],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        }
+      },
+      "googleUnits": []
     }
   ],
   "campaigns": [
@@ -322,7 +364,8 @@
       "sites": [
         "shared-ads-demo",
         "local-preview",
-        "localhost-preview"
+        "localhost-preview",
+        "qr-studio"
       ],
       "placements": [
         "content-bottom",
@@ -376,7 +419,8 @@
       "sites": [
         "shared-ads-demo",
         "local-preview",
-        "localhost-preview"
+        "localhost-preview",
+        "qr-studio"
       ],
       "placements": [
         "content-bottom",
@@ -484,7 +528,8 @@
       "sites": [
         "shared-ads-demo",
         "local-preview",
-        "localhost-preview"
+        "localhost-preview",
+        "qr-studio"
       ],
       "placements": [
         "content-bottom",
@@ -522,6 +567,58 @@
       ],
       "alt": "Read the TechTweedie blog — opens in a new tab",
       "destination": "https://techtweedie.github.io/",
+      "disclosure": "House advertisement"
+    },
+    {
+      "id": "qr-studio-feedback",
+      "name": "Help improve QR Studio",
+      "description": "A simple Mightora community message. No cookies, profiling or click tracking.",
+      "enabled": true,
+      "weight": 20,
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2030-01-01T00:00:00Z",
+      "minScreen": 0,
+      "maxScreen": 10000,
+      "category": "feedback",
+      "sites": [
+        "qr-studio"
+      ],
+      "placements": [
+        "content-bottom",
+        "article-middle",
+        "sidebar",
+        "landing-secondary",
+        "footer-above-author"
+      ],
+      "variants": [
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-320x50.svg",
+          "width": 320,
+          "height": 50
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-468x60.svg",
+          "width": 468,
+          "height": 60
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-728x90.svg",
+          "width": 728,
+          "height": 90
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-320x100.svg",
+          "width": 320,
+          "height": 100
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-300x250.svg",
+          "width": 300,
+          "height": 250
+        }
+      ],
+      "alt": "Help shape the next version — opens in a new tab",
+      "destination": "https://github.com/mightora/qr/issues/new",
       "disclosure": "House advertisement"
     }
   ]
