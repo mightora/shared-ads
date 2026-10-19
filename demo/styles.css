@@ -675,3 +675,7 @@ mightora-footer .footer-bottom-links a {
   background: #375343;
 }
 mightora-author{background-color:#193c2b}.skip-link{color:#195e3c}
+/* Switch palette atomically: colour fades can briefly fail text contrast. */
+body { transition: none; }
+mightora-header .header-nav a,
+mightora-header .theme-toggle { transition: none; }
