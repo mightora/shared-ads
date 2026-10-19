@@ -1,0 +1,528 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-19.1",
+  "global": {
+    "enabled": true,
+    "killSwitch": false,
+    "houseEnabled": true,
+    "googleEnabled": false,
+    "mode": "house-only",
+    "rotation": "weighted",
+    "maxAdsPerPage": 2,
+    "cacheSeconds": 60,
+    "allowedSizes": [
+      "320x50",
+      "468x60",
+      "728x90",
+      "320x100",
+      "300x250"
+    ],
+    "imageOrigins": [
+      "https://mightora.github.io"
+    ],
+    "destinationOrigins": [
+      "https://mightora.io",
+      "https://roadmaps.mightora.io",
+      "https://github.com",
+      "https://techtweedie.github.io"
+    ],
+    "categories": [
+      "mightora-tools",
+      "feedback",
+      "blog"
+    ],
+    "fallback": "house",
+    "google": {
+      "publisherId": null,
+      "autoAdsDisabledConfirmed": false,
+      "certifiedCmpIds": []
+    }
+  },
+  "sites": [
+    {
+      "id": "shared-ads-demo",
+      "domain": "mightora.github.io",
+      "pathPrefixes": [
+        "/shared-ads/"
+      ],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 2,
+      "categories": [
+        "mightora-tools",
+        "feedback",
+        "blog"
+      ],
+      "allowedSizes": [
+        "320x50",
+        "468x60",
+        "728x90",
+        "320x100",
+        "300x250"
+      ],
+      "exclusions": [
+        "/shared-ads/demo/disabled.html",
+        "/demo/disabled.html"
+      ],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "article-middle": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "sidebar": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "landing-secondary": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "footer-above-author": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        }
+      },
+      "googleUnits": []
+    },
+    {
+      "id": "local-preview",
+      "domain": "127.0.0.1",
+      "pathPrefixes": [
+        "/"
+      ],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 2,
+      "categories": [
+        "mightora-tools",
+        "feedback",
+        "blog"
+      ],
+      "allowedSizes": [
+        "320x50",
+        "468x60",
+        "728x90",
+        "320x100",
+        "300x250"
+      ],
+      "exclusions": [
+        "/shared-ads/demo/disabled.html",
+        "/demo/disabled.html"
+      ],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "article-middle": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "sidebar": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "landing-secondary": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "footer-above-author": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        }
+      },
+      "googleUnits": []
+    },
+    {
+      "id": "localhost-preview",
+      "domain": "localhost",
+      "pathPrefixes": [
+        "/"
+      ],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 2,
+      "categories": [
+        "mightora-tools",
+        "feedback",
+        "blog"
+      ],
+      "allowedSizes": [
+        "320x50",
+        "468x60",
+        "728x90",
+        "320x100",
+        "300x250"
+      ],
+      "exclusions": [
+        "/shared-ads/demo/disabled.html",
+        "/demo/disabled.html"
+      ],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "article-middle": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "sidebar": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "landing-secondary": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        },
+        "footer-above-author": {
+          "enabled": true,
+          "sizes": [
+            "320x50",
+            "468x60",
+            "728x90"
+          ]
+        }
+      },
+      "googleUnits": []
+    },
+    {
+      "id": "hero-academy",
+      "domain": "heroacademy.app",
+      "pathPrefixes": [
+        "/"
+      ],
+      "audience": "child-directed",
+      "enabled": false,
+      "houseAdsApproved": false,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "off",
+      "maxAdsPerPage": 0,
+      "categories": [
+        "mightora-tools",
+        "feedback",
+        "blog"
+      ],
+      "allowedSizes": [
+        "320x50",
+        "468x60",
+        "728x90",
+        "320x100",
+        "300x250"
+      ],
+      "exclusions": [
+        "/shared-ads/demo/disabled.html",
+        "/demo/disabled.html"
+      ],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {},
+      "googleUnits": []
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "mightora-tools",
+      "name": "Explore free Mightora tools",
+      "description": "Cookie-free Mightora promotion. Static artwork, direct link, no visitor measurement.",
+      "enabled": true,
+      "weight": 50,
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2030-01-01T00:00:00Z",
+      "minScreen": 0,
+      "maxScreen": 10000,
+      "category": "mightora-tools",
+      "sites": [
+        "shared-ads-demo",
+        "local-preview",
+        "localhost-preview"
+      ],
+      "placements": [
+        "content-bottom",
+        "article-middle",
+        "sidebar",
+        "landing-secondary",
+        "footer-above-author"
+      ],
+      "variants": [
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-tools-320x50.svg",
+          "width": 320,
+          "height": 50
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-tools-468x60.svg",
+          "width": 468,
+          "height": 60
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-tools-728x90.svg",
+          "width": 728,
+          "height": 90
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-tools-320x100.svg",
+          "width": 320,
+          "height": 100
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-tools-300x250.svg",
+          "width": 300,
+          "height": 250
+        }
+      ],
+      "alt": "Explore free Mightora tools — opens in a new tab",
+      "destination": "https://mightora.io/",
+      "disclosure": "House advertisement"
+    },
+    {
+      "id": "mightora-roadmaps",
+      "name": "Give your next idea a roadmap",
+      "description": "Cookie-free Mightora promotion. Static artwork, direct link, no visitor measurement.",
+      "enabled": true,
+      "weight": 30,
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2030-01-01T00:00:00Z",
+      "minScreen": 0,
+      "maxScreen": 10000,
+      "category": "mightora-tools",
+      "sites": [
+        "shared-ads-demo",
+        "local-preview",
+        "localhost-preview"
+      ],
+      "placements": [
+        "content-bottom",
+        "article-middle",
+        "sidebar",
+        "landing-secondary",
+        "footer-above-author"
+      ],
+      "variants": [
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-roadmaps-320x50.svg",
+          "width": 320,
+          "height": 50
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-roadmaps-468x60.svg",
+          "width": 468,
+          "height": 60
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-roadmaps-728x90.svg",
+          "width": 728,
+          "height": 90
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-roadmaps-320x100.svg",
+          "width": 320,
+          "height": 100
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/mightora-roadmaps-300x250.svg",
+          "width": 300,
+          "height": 250
+        }
+      ],
+      "alt": "Give your next idea a roadmap — opens in a new tab",
+      "destination": "https://roadmaps.mightora.io/",
+      "disclosure": "House advertisement"
+    },
+    {
+      "id": "feedback",
+      "name": "Help shape the next version",
+      "description": "A simple Mightora community message. No cookies, profiling or click tracking.",
+      "enabled": true,
+      "weight": 20,
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2030-01-01T00:00:00Z",
+      "minScreen": 0,
+      "maxScreen": 10000,
+      "category": "feedback",
+      "sites": [
+        "shared-ads-demo",
+        "local-preview",
+        "localhost-preview"
+      ],
+      "placements": [
+        "content-bottom",
+        "article-middle",
+        "sidebar",
+        "landing-secondary",
+        "footer-above-author"
+      ],
+      "variants": [
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-320x50.svg",
+          "width": 320,
+          "height": 50
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-468x60.svg",
+          "width": 468,
+          "height": 60
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-728x90.svg",
+          "width": 728,
+          "height": 90
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-320x100.svg",
+          "width": 320,
+          "height": 100
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/feedback-300x250.svg",
+          "width": 300,
+          "height": 250
+        }
+      ],
+      "alt": "Help shape the next version — opens in a new tab",
+      "destination": "https://github.com/mightora/shared-ads/issues/new",
+      "disclosure": "House advertisement"
+    },
+    {
+      "id": "techtweedie-blog",
+      "name": "Read the TechTweedie blog",
+      "description": "A simple Mightora community message. No cookies, profiling or click tracking.",
+      "enabled": false,
+      "weight": 20,
+      "start": "2026-01-01T00:00:00Z",
+      "end": "2030-01-01T00:00:00Z",
+      "minScreen": 0,
+      "maxScreen": 10000,
+      "category": "blog",
+      "sites": [
+        "shared-ads-demo",
+        "local-preview",
+        "localhost-preview"
+      ],
+      "placements": [
+        "content-bottom",
+        "article-middle",
+        "sidebar",
+        "landing-secondary",
+        "footer-above-author"
+      ],
+      "variants": [
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/techtweedie-blog-320x50.svg",
+          "width": 320,
+          "height": 50
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/techtweedie-blog-468x60.svg",
+          "width": 468,
+          "height": 60
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/techtweedie-blog-728x90.svg",
+          "width": 728,
+          "height": 90
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/techtweedie-blog-320x100.svg",
+          "width": 320,
+          "height": 100
+        },
+        {
+          "src": "https://mightora.github.io/shared-ads/adverts/techtweedie-blog-300x250.svg",
+          "width": 300,
+          "height": 250
+        }
+      ],
+      "alt": "Read the TechTweedie blog — opens in a new tab",
+      "destination": "https://techtweedie.github.io/",
+      "disclosure": "House advertisement"
+    }
+  ]
+}

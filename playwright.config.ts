@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'tests',testMatch:'*.spec.ts',fullyParallel:false,workers:2,timeout:20000,expect:{timeout:6000},reporter:[['list'],['html',{open:'never'}]],use:{baseURL:'http://127.0.0.1:4173',headless:true,viewport:{width:1200,height:900},launchOptions:process.env.PW_EXECUTABLE_PATH?{executablePath:process.env.PW_EXECUTABLE_PATH,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote']}:undefined,trace:'retain-on-failure'}});

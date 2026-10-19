@@ -1,0 +1,690 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mightora.github.io/shared-ads/config/schema-v1.json",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]{0,63}$"
+    },
+    "global": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "killSwitch": {
+          "type": "boolean"
+        },
+        "houseEnabled": {
+          "type": "boolean"
+        },
+        "googleEnabled": {
+          "type": "boolean"
+        },
+        "mode": {
+          "enum": [
+            "mixed",
+            "house-only",
+            "google-only",
+            "off"
+          ]
+        },
+        "rotation": {
+          "enum": [
+            "equal",
+            "weighted"
+          ]
+        },
+        "maxAdsPerPage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "cacheSeconds": {
+          "type": "integer",
+          "minimum": 30,
+          "maximum": 300
+        },
+        "allowedSizes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "320x50",
+              "468x60",
+              "728x90",
+              "320x100",
+              "300x250"
+            ]
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "imageOrigins": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "destinationOrigins": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+          },
+          "maxItems": 30,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "fallback": {
+          "enum": [
+            "house",
+            "empty"
+          ]
+        },
+        "google": {
+          "type": "object",
+          "properties": {
+            "publisherId": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^ca-pub-[0-9]{16}$"
+                }
+              ]
+            },
+            "autoAdsDisabledConfirmed": {
+              "type": "boolean"
+            },
+            "certifiedCmpIds": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4095
+              },
+              "maxItems": 30,
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "publisherId",
+            "autoAdsDisabledConfirmed",
+            "certifiedCmpIds"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "enabled",
+        "killSwitch",
+        "houseEnabled",
+        "googleEnabled",
+        "mode",
+        "rotation",
+        "maxAdsPerPage",
+        "cacheSeconds",
+        "allowedSizes",
+        "imageOrigins",
+        "destinationOrigins",
+        "categories",
+        "fallback",
+        "google"
+      ],
+      "additionalProperties": false
+    },
+    "sites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+          },
+          "domain": {
+            "type": "string",
+            "pattern": "^[a-z0-9]([a-z0-9.-]*[a-z0-9])?$",
+            "maxLength": 253
+          },
+          "pathPrefixes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "maxItems": 30,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "audience": {
+            "enum": [
+              "general",
+              "child-directed"
+            ]
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "houseAdsApproved": {
+            "type": "boolean"
+          },
+          "googleEnabled": {
+            "type": "boolean"
+          },
+          "googleApproved": {
+            "type": "boolean"
+          },
+          "mode": {
+            "enum": [
+              "mixed",
+              "house-only",
+              "google-only",
+              "off"
+            ]
+          },
+          "maxAdsPerPage": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            },
+            "maxItems": 30,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "allowedSizes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "320x50",
+                "468x60",
+                "728x90",
+                "320x100",
+                "300x250"
+              ]
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "exclusions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "maxItems": 100,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "longContentPaths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "maxItems": 30,
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "placements": {
+            "type": "object",
+            "properties": {
+              "content-bottom": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "320x50",
+                        "468x60",
+                        "728x90",
+                        "320x100",
+                        "300x250"
+                      ]
+                    },
+                    "maxItems": 5,
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "sizes"
+                ],
+                "additionalProperties": false
+              },
+              "article-middle": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "320x50",
+                        "468x60",
+                        "728x90",
+                        "320x100",
+                        "300x250"
+                      ]
+                    },
+                    "maxItems": 5,
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "sizes"
+                ],
+                "additionalProperties": false
+              },
+              "sidebar": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "320x50",
+                        "468x60",
+                        "728x90",
+                        "320x100",
+                        "300x250"
+                      ]
+                    },
+                    "maxItems": 5,
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "sizes"
+                ],
+                "additionalProperties": false
+              },
+              "landing-secondary": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "320x50",
+                        "468x60",
+                        "728x90",
+                        "320x100",
+                        "300x250"
+                      ]
+                    },
+                    "maxItems": 5,
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "sizes"
+                ],
+                "additionalProperties": false
+              },
+              "footer-above-author": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "320x50",
+                        "468x60",
+                        "728x90",
+                        "320x100",
+                        "300x250"
+                      ]
+                    },
+                    "maxItems": 5,
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "sizes"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "googleUnits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "enabled": {
+                  "type": "boolean"
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "start": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 30
+                },
+                "end": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 30
+                },
+                "minScreen": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "maxScreen": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "placement": {
+                  "enum": [
+                    "content-bottom",
+                    "article-middle",
+                    "sidebar",
+                    "landing-secondary",
+                    "footer-above-author"
+                  ]
+                },
+                "slot": {
+                  "type": "string",
+                  "pattern": "^[0-9]{6,20}$"
+                },
+                "size": {
+                  "enum": [
+                    "320x50",
+                    "468x60",
+                    "728x90",
+                    "320x100",
+                    "300x250"
+                  ]
+                },
+                "format": {
+                  "enum": [
+                    "fixed",
+                    "responsive-horizontal"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "description",
+                "enabled",
+                "weight",
+                "start",
+                "end",
+                "minScreen",
+                "maxScreen",
+                "placement",
+                "slot",
+                "size",
+                "format"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 30,
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "domain",
+          "pathPrefixes",
+          "audience",
+          "enabled",
+          "houseAdsApproved",
+          "googleEnabled",
+          "googleApproved",
+          "mode",
+          "maxAdsPerPage",
+          "categories",
+          "allowedSizes",
+          "exclusions",
+          "longContentPaths",
+          "placements",
+          "googleUnits"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 500,
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "campaigns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000
+          },
+          "start": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30
+          },
+          "end": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30
+          },
+          "minScreen": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "maxScreen": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "category": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+          },
+          "sites": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            },
+            "maxItems": 500,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "placements": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "content-bottom",
+                "article-middle",
+                "sidebar",
+                "landing-secondary",
+                "footer-above-author"
+              ]
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 728
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 250
+                }
+              },
+              "required": [
+                "src",
+                "width",
+                "height"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 250
+          },
+          "destination": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "disclosure": {
+            "enum": [
+              "Advertisement",
+              "Paid advertisement",
+              "House advertisement"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "enabled",
+          "weight",
+          "start",
+          "end",
+          "minScreen",
+          "maxScreen",
+          "category",
+          "sites",
+          "placements",
+          "variants",
+          "alt",
+          "destination",
+          "disclosure"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 1000,
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "revision",
+    "global",
+    "sites",
+    "campaigns"
+  ],
+  "additionalProperties": false
+}

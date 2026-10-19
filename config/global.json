@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-19.1",
+  "global": {
+    "enabled": true,
+    "killSwitch": false,
+    "houseEnabled": true,
+    "googleEnabled": false,
+    "mode": "house-only",
+    "rotation": "weighted",
+    "maxAdsPerPage": 2,
+    "cacheSeconds": 60,
+    "allowedSizes": ["320x50", "468x60", "728x90", "320x100", "300x250"],
+    "imageOrigins": ["https://mightora.github.io"],
+    "destinationOrigins": [
+      "https://mightora.io",
+      "https://roadmaps.mightora.io",
+      "https://github.com",
+      "https://techtweedie.github.io"
+    ],
+    "categories": ["mightora-tools", "feedback", "blog"],
+    "fallback": "house",
+    "google": {
+      "publisherId": null,
+      "autoAdsDisabledConfirmed": false,
+      "certifiedCmpIds": []
+    }
+  }
+}

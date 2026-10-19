@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-19.1",
+  "sites": [
+    {
+      "id": "shared-ads-demo",
+      "domain": "mightora.github.io",
+      "pathPrefixes": ["/shared-ads/"],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 2,
+      "categories": ["mightora-tools", "feedback", "blog"],
+      "allowedSizes": ["320x50", "468x60", "728x90", "320x100", "300x250"],
+      "exclusions": ["/shared-ads/demo/disabled.html", "/demo/disabled.html"],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "article-middle": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "sidebar": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "landing-secondary": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "footer-above-author": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        }
+      },
+      "googleUnits": []
+    },
+    {
+      "id": "local-preview",
+      "domain": "127.0.0.1",
+      "pathPrefixes": ["/"],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 2,
+      "categories": ["mightora-tools", "feedback", "blog"],
+      "allowedSizes": ["320x50", "468x60", "728x90", "320x100", "300x250"],
+      "exclusions": ["/shared-ads/demo/disabled.html", "/demo/disabled.html"],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "article-middle": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "sidebar": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "landing-secondary": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "footer-above-author": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        }
+      },
+      "googleUnits": []
+    },
+    {
+      "id": "localhost-preview",
+      "domain": "localhost",
+      "pathPrefixes": ["/"],
+      "audience": "general",
+      "enabled": true,
+      "houseAdsApproved": true,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "house-only",
+      "maxAdsPerPage": 2,
+      "categories": ["mightora-tools", "feedback", "blog"],
+      "allowedSizes": ["320x50", "468x60", "728x90", "320x100", "300x250"],
+      "exclusions": ["/shared-ads/demo/disabled.html", "/demo/disabled.html"],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {
+        "content-bottom": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "article-middle": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "sidebar": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "landing-secondary": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        },
+        "footer-above-author": {
+          "enabled": true,
+          "sizes": ["320x50", "468x60", "728x90"]
+        }
+      },
+      "googleUnits": []
+    },
+    {
+      "id": "hero-academy",
+      "domain": "heroacademy.app",
+      "pathPrefixes": ["/"],
+      "audience": "child-directed",
+      "enabled": false,
+      "houseAdsApproved": false,
+      "googleEnabled": false,
+      "googleApproved": false,
+      "mode": "off",
+      "maxAdsPerPage": 0,
+      "categories": ["mightora-tools", "feedback", "blog"],
+      "allowedSizes": ["320x50", "468x60", "728x90", "320x100", "300x250"],
+      "exclusions": ["/shared-ads/demo/disabled.html", "/demo/disabled.html"],
+      "longContentPaths": [
+        "/shared-ads/demo/article.html",
+        "/demo/article.html"
+      ],
+      "placements": {},
+      "googleUnits": []
+    }
+  ]
+}

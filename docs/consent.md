@@ -1,0 +1,17 @@
+# Certified CMP integration and withdrawal
+
+This project does not implement a consent banner or manufacture TC strings. The site owner installs a currently Google-certified IAB TCF CMP, configures it for the participating domain and applicable regions, and exposes a persistent “Privacy / consent preferences” control using that CMP's own supported API. Include equally clear refusal and withdrawal paths, with no loss of site access. The house-only demo has no consent collector; its refused page is an illustrative state, not a certified CMP.
+
+The adapter calls the standard __tcfapi('addEventListener', 2, callback). The API version number is 2 even for a TCF 2.3 CMP. It listens for tcloaded/useractioncomplete with cmpStatus=loaded, a non-empty TC string, an explicitly configured certified cmpId, gdprApplies=true, Google vendor 755 consent, and affirmative consent for purposes 1,2,3,4,7,9,10. Publisher restrictions 0 (not allowed) and 2 (require legitimate interest) reject that purpose. This conservative consent-only policy deliberately does not claim that all these consent grants are Google's minimum in every configuration. No LI or limited-ad fallback is attempted. While the CMP UI is open, the last settled choice is retained until useractioncomplete; before an initial settled choice, Google is off.
+
+Unknown, failed, refused or incomplete state is house/empty. gdprApplies=false also stays house-only: the platform does not infer lawful permission from geography. Owners requiring a different lawful regime need a separately reviewed adapter; do not flip a homemade boolean or fabricate a TCF result. The CMP is responsible for valid current TC strings, vendor disclosures, regional notices, preference persistence and any consent records. Merely allowlisting a cmpId does not prove a genuine CMP is installed; operator setup and live Google validation remain necessary.
+
+Load and configure the CMP before starting the ad runtime where possible. If __tcfapi appears within the first three seconds it is attached automatically; if later, restart before any Google request, or choose explicit startup after the CMP is ready. The runtime never fetches a CMP itself. Keep CMP UI and privacy/settings pages free of advertising.
+
+## Withdrawal contract
+
+On a settled refusal/withdrawal, synchronously block further Google use, abort pending work and remove units. If a Google loader was already inserted, a script tag cannot unload its executed JavaScript. The default runtime calls location.reload(), unloading the document. The certified CMP must persist the refusal before emitting its completed event, so the next page load refuses Google and can show an eligible cookie-free house message. This page reload is privacy handling, not advertising refresh.
+
+If overriding onGoogleWithdrawal, the host must navigate/reload after its CMP has persisted the choice. A no-op override is only for tests or an application that immediately destroys that document; it does not stop already executed third-party code by itself. Don't override just to avoid a reload. Review unsaved-work UX before opting a developer tool into Google. A house-only tool has no such third-party teardown requirement.
+
+The platform cannot undo prior lawful requests or erase provider cookies. Provide the CMP's supported withdrawal/deletion guidance and current third-party disclosures. Check the provider's current behaviour before launch. No legal compliance certification is claimed.

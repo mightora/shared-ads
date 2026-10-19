@@ -1,0 +1,45 @@
+{
+  "name": "@mightora/shared-ads",
+  "version": "1.0.0",
+  "description": "Explicitly placed, consent-aware advertising with cookie-free Mightora house campaigns.",
+  "scripts": {
+    "schema": "node scripts/schema.mjs",
+    "config:validate": "node scripts/schema.mjs && node --import tsx scripts/config.ts && python scripts/check-assets.py",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "test:unit": "node --import tsx --test tests/*.test.ts",
+    "test:browser": "playwright test",
+    "test": "npm run config:validate && npm run typecheck && npm run test:unit && npm run test:assets",
+    "check": "npm test && npm run build && npm run test:browser",
+    "audit": "npm audit --audit-level=moderate",
+    "ads:check": "node --import tsx scripts/ads-txt.ts",
+    "test:assets": "python -m unittest discover -s tests -p '*_test.py'",
+    "format": "prettier --write \"src/**/*.ts\" \"demo/*.{ts,css,html}\" \"scripts/*.{ts,mjs}\" \"tests/*.ts\" \"*.{json,md}\" \"config/*.json\" \".github/**/*.yml\""
+  },
+  "keywords": [],
+  "author": "Ian Tweedie (TechTweedie)",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@types/js-yaml": "4.0.9",
+    "@types/node": "24.19.2",
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "fflate": "0.8.3",
+    "js-yaml": "5.5.0",
+    "prettier": "3.9.10",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mightora/shared-ads.git"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules
+dist
+artifacts
+demo/vendor
+src/core/schema.generated.js
+src/core/schema.generated.d.ts
+config/config.json
+config/versions
+project_sources
+playwright-report
+test-results

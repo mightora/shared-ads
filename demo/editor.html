@@ -1,0 +1,263 @@
+<section class="section" id="workspace">
+  <div class="section-top">
+    <div>
+      <span class="eyebrow">CAMPAIGN WORKSPACE</span>
+      <h1>Good messages. On your terms.</h1>
+      <p class="lead">
+        Feedback requests, your blog and useful tools. Edit locally, then review
+        changes in GitHub.
+      </p>
+    </div>
+    <span class="tag" id="edition">Local editing · GitHub publishing</span>
+  </div>
+  <div class="status-box">
+    This editor does not sign in or publish. Nothing leaves this draft unless
+    you export it or explicitly load the published configuration.
+  </div>
+  <div class="actions">
+    <label class="button"
+      >Import config.json<input
+        id="config-import"
+        type="file"
+        accept=".json,application/json" /></label
+    ><button id="load-published">Review published configuration</button
+    ><button id="export-json">Export config.json</button>
+  </div>
+  <p id="status" role="status" aria-live="polite"></p>
+</section>
+<div class="editor-layout">
+  <aside class="editor-sidebar" aria-label="Campaigns">
+    <div class="section-top">
+      <h2>Campaigns</h2>
+      <button id="new-campaign">+ New</button>
+    </div>
+    <div id="campaign-list"></div>
+    <details>
+      <summary>Registered websites</summary>
+      <ul id="site-list"></ul>
+    </details>
+  </aside>
+  <section class="editor-panel" id="campaign">
+    <h2 id="editor-heading">Edit campaign</h2>
+    <form id="campaign-form">
+      <div class="form-grid">
+        <label
+          >Campaign ID<input
+            id="campaign-id"
+            required
+            pattern="[a-z0-9][a-z0-9-]{0,63}" /></label
+        ><label>Name<input id="campaign-name" required maxlength="100" /></label
+        ><label class="span-2"
+          >Description<input
+            id="campaign-description"
+            required
+            maxlength="500" /></label
+        ><label class="span-2"
+          >Accessible image text<input
+            id="campaign-alt"
+            required
+            maxlength="250" /></label
+        ><label class="span-2"
+          >Direct HTTPS destination<input
+            id="campaign-destination"
+            type="url"
+            required /></label
+        ><label
+          >Starts (UTC)<input
+            id="campaign-start"
+            required
+            placeholder="2026-01-01T00:00:00Z" /></label
+        ><label
+          >Ends, exclusive (UTC)<input
+            id="campaign-end"
+            required
+            placeholder="2030-01-01T00:00:00Z" /></label
+        ><label
+          >Weight<input
+            id="campaign-weight"
+            type="number"
+            min="0"
+            max="1000000"
+            step="any"
+            required /></label
+        ><label>Category<input id="campaign-category" required /></label
+        ><label
+          >Minimum viewport width<input
+            id="campaign-minScreen"
+            type="number"
+            min="0"
+            max="10000"
+            required /></label
+        ><label
+          >Maximum viewport width<input
+            id="campaign-maxScreen"
+            type="number"
+            min="0"
+            max="10000"
+            required /></label
+        ><label
+          >Disclosure<select id="campaign-disclosure">
+            <option>House advertisement</option>
+            <option>Advertisement</option>
+            <option>Paid advertisement</option>
+          </select></label
+        ><label
+          ><input id="campaign-enabled" type="checkbox" /> Campaign
+          enabled</label
+        ><label class="span-2"
+          >Approved site IDs (comma separated)<input
+            id="campaign-sites"
+            required /></label
+        ><label class="span-2"
+          >Approved placements (comma separated)<input
+            id="campaign-placements"
+            required /></label
+        ><label class="span-2"
+          >Image variants: src, width and height<textarea
+            id="campaign-variants"
+            required
+            rows="7"
+            spellcheck="false"
+          ></textarea>
+        </label>
+      </div>
+      <div class="actions">
+        <button class="primary" type="submit">Save to draft</button
+        ><button type="button" id="delete-campaign">Remove from draft</button>
+      </div>
+    </form>
+  </section>
+</div>
+<section id="controls" class="section">
+  <span class="eyebrow">OWNER CONTROLS</span>
+  <h2>A clear off switch.</h2>
+  <div class="form-grid">
+    <label
+      ><input type="checkbox" id="global-enabled" /> Advertising enabled</label
+    ><label
+      ><input type="checkbox" id="kill-switch" /> Emergency kill switch</label
+    ><label
+      >Selection<select id="rotation">
+        <option value="equal">Equal random rotation</option>
+        <option value="weighted">Weighted random rotation</option>
+      </select></label
+    ><label
+      >Provider mode<select id="mode">
+        <option value="house-only">House only</option>
+        <option value="mixed">House + Google, with consent</option>
+        <option value="google-only">Google preferred, consent fallback</option>
+        <option value="off">All advertising off</option>
+      </select></label
+    >
+  </div>
+  <p class="tiny">
+    Google remains disabled until the account, site approval, manual units and
+    certified CMP are separately configured. Refusal uses eligible cookie-free
+    house messages, or an empty placement.
+  </p>
+</section>
+<section class="section" id="preview">
+  <span class="eyebrow">LAYOUT PREVIEWS</span>
+  <h2>Small by design.</h2>
+  <div class="form-grid">
+    <label>Website<select id="preview-site"></select></label
+    ><label
+      >Placement<select id="preview-placement">
+        <option>content-bottom</option>
+        <option>article-middle</option>
+        <option>sidebar</option>
+        <option>landing-secondary</option>
+        <option>footer-above-author</option>
+      </select></label
+    ><label
+      >Available width<select id="preview-width">
+        <option value="320">320 px · Mobile</option>
+        <option value="468">468 px · Compact</option>
+        <option value="728" selected>728 px · Desktop</option>
+      </select></label
+    >
+  </div>
+  <p id="selection-preview" class="status-box"></p>
+  <label
+    >Preview your own local artwork<input
+      id="artwork-files"
+      type="file"
+      multiple
+      accept=".svg,.png,.jpg,.jpeg,.webp"
+  /></label>
+  <p class="tiny">
+    Choose files whose names match the campaign image URLs. Valid referenced
+    images are included in the exported change ZIP. Files remain in this browser
+    until you export.
+  </p>
+  <div class="sizes" id="preview-gallery"></div>
+  <p class="tiny">
+    Bundled image previews are embedded and make no network requests. Previews
+    scale to fit this editor; live adverts hide if their approved size cannot
+    fit.
+  </p>
+</section>
+<section class="section" id="publish">
+  <span class="eyebrow">REVIEW BEFORE RELEASE</span>
+  <h2>GitHub is the source of truth.</h2>
+  <label>New configuration revision<input id="revision" required /></label>
+  <div class="actions">
+    <button id="export-pr" class="primary">
+      Export change for pull request</button
+    ><a
+      class="button"
+      href="https://github.com/mightora/shared-ads/upload/main/config"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Open GitHub upload</a
+    >
+  </div>
+  <ol>
+    <li>Download and extract the change ZIP.</li>
+    <li>
+      Upload its three JSON files to the repository's config folder using your
+      own GitHub sign-in.
+    </li>
+    <li>
+      Select “Create a new branch for this commit and start a pull request”.
+    </li>
+    <li>
+      Review the validation and CI checks, then merge. The Pages workflow
+      publishes the new configuration.
+    </li>
+  </ol>
+  <details>
+    <summary>Advanced: full configuration</summary>
+    <label
+      >JSON draft<textarea
+        id="raw-config"
+        rows="20"
+        spellcheck="false"
+      ></textarea></label
+    ><button id="apply-json">Validate and apply JSON</button>
+  </details>
+  <details>
+    <summary>Published configuration (read only)</summary>
+    <pre id="published-config">
+Use “Review published configuration” to load it.</pre>
+  </details>
+</section>
+<section class="section" id="network">
+  <h2>Network transparency</h2>
+  <p>
+    Editing and validation happen in your browser. The online shell loads
+    Mightora shared branding. Loading published configuration is a separate,
+    deliberate request. The offline editor makes no application network
+    requests.
+  </p>
+  <button id="network-refresh">Show observed resource requests</button>
+  <p class="tiny" id="network-output">
+    Resource Timing is a partial view and is not a security audit.
+  </p>
+  <p class="tiny">
+    Press F12 (or your browser's Developer Tools shortcut), open Network, enable
+    Preserve log and reload. Inspect requests, cookies and storage there.
+    On-screen results may omit blocked requests, other frames and browser
+    activity.
+  </p>
+</section>
