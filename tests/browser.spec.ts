@@ -15,6 +15,9 @@ const mime: Record<string, string> = {
   ".css": "text/css",
   ".yaml": "application/json",
 };
+const publishedCampaignCount = JSON.parse(
+  readFileSync("config/config.json", "utf8"),
+).campaigns.length;
 // Intercept every request: Google is ALWAYS a mock or blocked. No live ad impression can escape.
 test.beforeEach(async ({ context }) => {
   await context.route("**/*", async (route) => {
@@ -459,7 +462,7 @@ test("campaign editor validates, previews and exports a real configuration", asy
   page,
 }) => {
   await page.goto("/demo/editor.html");
-  await expect(page.locator("#campaign-list button")).toHaveCount(4);
+  await expect(page.locator("#campaign-list button")).toHaveCount(publishedCampaignCount);
   await expect(page.locator("#preview-gallery img")).toHaveCount(3);
   await page.locator("#campaign-name").fill("Useful feedback");
   await page.getByRole("button", { name: "Save to draft" }).click();
@@ -488,7 +491,7 @@ test("offline HTML runs directly from disk with no application requests and matc
   });
   await page.goto("file://" + path);
   await expect(page.locator("#edition")).toContainText("Offline Edition");
-  await expect(page.locator("#campaign-list button")).toHaveCount(4);
+  await expect(page.locator("#campaign-list button")).toHaveCount(publishedCampaignCount);
   await expect(page.locator("#preview-gallery img")).toHaveCount(3);
   await expect(page.locator("#load-published")).toBeDisabled();
   await page.waitForTimeout(100);
