@@ -25,14 +25,14 @@
     "@axe-core/playwright": "4.14.0",
     "@playwright/test": "1.64.1",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "ajv": "8.20.0",
     "esbuild": "0.28.2",
     "fflate": "0.8.3",
     "js-yaml": "5.5.0",
     "prettier": "3.9.10",
     "tsx": "4.23.15",
-    "typescript": "5.9.3"
+    "typescript": "7.0.2"
   },
   "private": true,
   "repository": {
